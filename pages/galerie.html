@@ -8,7 +8,7 @@
 <div class="container">
 
     <div class="text-center">
-        <button class="btn btn-primary">Ajouter une photo</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EdiitonPhotoModal">Ajouter une photo</button>
     </div>
 
     <div class="row row-cols-2 row-cols-lg-3">
@@ -17,8 +17,8 @@
                 <img src="/Média/bg-avis.jpg" class="rounded w-100 img-homepage">
                 <p class="titre-image">Titre</p>
                 <div class="action-image-buttons">
-                    <button type="button" class="btn btn-outline-light"><i class="bi bi-pencil"></i></button>
-                    <button type="button" class="btn btn-outline-light"><i class="bi bi-trash"></i></button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EdiitonPhotoModal"><i class="bi bi-pencil"></i></button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#DeletePhotoModal"><i class="bi bi-trash"></i></button>
                 </div>
             </div>
         </div>
@@ -27,8 +27,8 @@
                 <img src="/Média/lasavane.jpg" class="rounded w-100 img-homepage">
                 <p class="titre-image">Titre</p>
                 <div class="action-image-buttons">
-                    <button type="button" class="btn btn-outline-light"><i class="bi bi-pencil"></i></button>
-                    <button type="button" class="btn btn-outline-light"><i class="bi bi-trash"></i></button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EdiitonPhotoModal"><i class="bi bi-pencil"></i></button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#DeletePhotoModal"><i class="bi bi-trash"></i></button>
                 </div>
             </div>
         </div>
@@ -37,8 +37,8 @@
                 <img src="/Média/lajungleV2.jpg" class="rounded w-100 img-homepage">
                 <p class="titre-image">Titre</p>
                 <div class="action-image-buttons">
-                    <button type="button" class="btn btn-outline-light"><i class="bi bi-pencil"></i></button>
-                    <button type="button" class="btn btn-outline-light"><i class="bi bi-trash"></i></button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EdiitonPhotoModal"><i class="bi bi-pencil"></i></button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#DeletePhotoModal"><i class="bi bi-trash"></i></button>
                 </div>
             </div>
         </div>
@@ -47,8 +47,8 @@
                 <img src="/Média/bg-hero.jpg" class="rounded w-100 img-homepage">
                 <p class="titre-image">Titre</p>
                 <div class="action-image-buttons">
-                    <button type="button" class="btn btn-outline-light"><i class="bi bi-pencil"></i></button>
-                    <button type="button" class="btn btn-outline-light"><i class="bi bi-trash"></i></button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EdiitonPhotoModal"><i class="bi bi-pencil"></i></button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#DeletePhotoModal"><i class="bi bi-trash"></i></button>
                 </div>
             </div>
         </div>
@@ -57,8 +57,8 @@
                 <img src="/Média/lecrocodile.jpg" class="rounded w-100 img-homepage">
                 <p class="titre-image">Titre</p>
                 <div class="action-image-buttons">
-                    <button type="button" class="btn btn-outline-light"><i class="bi bi-pencil"></i></button>
-                    <button type="button" class="btn btn-outline-light"><i class="bi bi-trash"></i></button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EdiitonPhotoModal"><i class="bi bi-pencil"></i></button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#DeletePhotoModal"><i class="bi bi-trash"></i></button>
                 </div>
             </div>
         </div>
@@ -67,8 +67,8 @@
                 <img src="/Média/lasavaneV2.jpg" class="rounded w-100 img-homepage">
                 <p class="titre-image">Titre</p>
                 <div class="action-image-buttons">
-                    <button type="button" class="btn btn-outline-light"><i class="bi bi-pencil"></i></button>
-                    <button type="button" class="btn btn-outline-light"><i class="bi bi-trash"></i></button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EdiitonPhotoModal"><i class="bi bi-pencil"></i></button>
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#DeletePhotoModal"><i class="bi bi-trash"></i></button>
                 </div>
             </div>
         </div>
@@ -79,3 +79,66 @@
     </div>
 
 </div>
+
+
+
+
+<!--MODAL EDITION-->
+<div class="modal fade" id="EdiitonPhotoModal" tabindex="-1" role="dialog" aria-labelledby="EditionPhotoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="EditionPhotoModalLabel">Edition Photo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                <label for="NamePhotoInput" class="form-label">Titre</label>
+                <input type="text" class="form-control" id="NamePhotoInput"  placeholder="Léopard">
+                </div>
+                <div class="form-group">
+                <label for="ImageInput"  class="form-label mt-3">Image</label>
+                <input type="file" class="form-control" id="ImageInput">
+                </div>
+        
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary mt-4">Enregistrer</button>
+                </div>
+                
+            </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <!--MODAL SUPPRESSION-->
+<div class="modal fade" id="DeletePhotoModal" tabindex="-1" role="dialog" aria-labelledby="DeletePhotoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="DeletePhotoModalLabel">Êtes-vous sûr de vouloir supprimer cette photo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <p>Titre</p>
+                    <img src="/Média/lasavane.jpg" class="rounded w-100 img-homepage">
+                </div>
+                        
+                <div class="text-center">
+                    <button type="button" class="btn btn-danger mt-4">Supprimer</button>
+                    <button type="button" class="btn btn-secondary mt-4" data-bs-dismiss="modal">Annuler</button>
+                </div>
+                
+            </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
