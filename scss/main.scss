@@ -7,7 +7,7 @@ html{
 }
 
 main{
-    margin-bottom: 250px;
+    margin-bottom: 270px;
 }
 
 p{
@@ -32,6 +32,7 @@ footer.footer{
     background-position: center;
     background-size: cover;
     position: relative;
+    margin-bottom: 15px;
 
     .hero-scene-content{
         height: 300px;
@@ -77,5 +78,10 @@ footer.footer{
         transform: translate(-50%, -50%);
         opacity: 0;
     }
+}
 
+// PAGE DE CONNEXION
+
+.form-label{
+    color: $primary;
 }

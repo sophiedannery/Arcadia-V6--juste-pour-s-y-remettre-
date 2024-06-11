@@ -11972,7 +11972,7 @@ html {
 }
 
 main {
-  margin-bottom: 250px;
+  margin-bottom: 270px;
 }
 
 p {
@@ -11997,6 +11997,7 @@ footer.footer {
   background-position: center;
   background-size: cover;
   position: relative;
+  margin-bottom: 15px;
 }
 .hero-scene .hero-scene-content {
   height: 300px;
@@ -12031,4 +12032,8 @@ footer.footer {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
+}
+
+.form-label {
+  color: #906427;
 }/*# sourceMappingURL=main.css.map */
