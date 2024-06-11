@@ -15,6 +15,10 @@ p{
     font-size: 18px;
 }
 
+.text-justify{
+    text-align: justify;
+}
+
 footer.footer{
     padding: 15px;
     position: absolute;
@@ -37,3 +41,12 @@ footer.footer{
         justify-content: center;
     }
 }
+
+//IMAGE PAGE ACCUEIL
+
+.img-homepage{
+    height: 250px;
+    width: 300px;
+    object-fit: cover;
+}
+

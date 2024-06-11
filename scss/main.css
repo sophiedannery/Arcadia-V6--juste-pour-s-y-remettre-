@@ -11980,6 +11980,10 @@ p {
   font-size: 18px;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 footer.footer {
   padding: 15px;
   position: absolute;
@@ -12000,4 +12004,11 @@ footer.footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.img-homepage {
+  height: 250px;
+  width: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=main.css.map */
