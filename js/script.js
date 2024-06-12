@@ -60,21 +60,63 @@ function isConnected(){
     }
 }
 
-//réagier en fonction de connection ou pas
-if(isConnected()){
-    alert("Je suis connecté");
-} else {
-    alert("Je ne suis pas connecté");
-}
-
 
 
 // GERER LA DECONNEXION (supprimer le cookie)
 const signoutBtn = document.getElementById("signout-btn");
+const RoleCookieName = "role"
 
 signoutBtn.addEventListener("click", signout);
 
 function signout(){
     eraseCookie(tokenCookieName);
+    eraseCookie(RoleCookieName)
     window.location.reload();
+}
+
+
+// RECUPERER LE ROLE DE L'UTILISATEUR
+//Si j'appelle cette méthode, je pourrais savoir quel est le rôle de l'utilisateur
+function getRole(){
+    return getCookie(RoleCookieName);
+}
+
+/*
+LES ROLES
+disconnected
+connected (admin ou client)
+*/
+
+
+//FONOCTION POUR MONTRER OU CACHER LES ELEMENTS SELON LE ROLE
+function showAndHideElementsForRoles(){
+    const userConnected = isConnected();
+    const role = getRole();
+
+    let allElementsToEdit = document.querySelectorAll('[data-show]');
+
+    allElementsToEdit.forEach(element => {
+        switch(element.dataset.show){
+            case 'disconnected':
+                if(userConnected){
+                    element.classList.add("d-none");
+                }
+                break;
+            case 'connected':
+                if(!userConnected){
+                    element.classList.add("d-none");
+                }
+                break;
+            case 'admin':
+                if(!userConnected || role != "admin"){
+                    element.classList.add("d-none");
+                }
+                break;
+            case 'client':
+                if(!userConnected || role != "client"){
+                    element.classList.add("d-none");
+                }
+                break;
+        }
+    })
 }
