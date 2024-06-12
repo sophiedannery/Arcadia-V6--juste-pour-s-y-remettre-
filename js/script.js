@@ -134,3 +134,41 @@ function sanitizeHtml(text) {
     tempHtml.textContent = text;
     return tempHtml.innerHTML;
 }
+
+
+
+//RECUPERER LES INFOS DU USER CONNECTE 
+function getInfosUser(){
+
+    //header du fetch
+    const myHeaders = new Headers();
+    myHeaders.append("X-AUTH-TOKEN", getToken());
+
+    //recap du fetch
+    const requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow"
+    };
+    
+    //envoi de la requête au serveur
+    fetch(apiUrl+"account/me", requestOptions)
+    //Ce qu'on fait arpès que la requête soit exécuté :
+    .then(response => {
+        if(response.ok) {
+            return response.json();
+        } else {
+            console.log("Impossible de récupérer les informations utilisateur.");
+        }
+    })
+    .then(result => {
+        console.log(result);
+        return result;
+    })
+    .catch(error =>{
+        console.error("Erreur lors de la récupération des données utilisateur", error);
+    });
+}
+
+
+
