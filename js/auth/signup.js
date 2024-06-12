@@ -4,12 +4,14 @@ const inputMail = document.getElementById("EmailInput");
 const inputPassword = document.getElementById("PasswordInput");
 const inputValidationPassword = document.getElementById("ValidatePasswordInput");
 const btnValidation = document.getElementById("btn-validation-inscription");
+const formInscription = document.getElementById("formulaireInscription");
 
 inputNom.addEventListener("keyup", validateForm);
 inputPrenom.addEventListener("keyup", validateForm);
 inputMail.addEventListener("keyup", validateForm);
 inputPassword.addEventListener("keyup", validateForm);
 inputValidationPassword.addEventListener("keyup", validateForm);
+btnValidation.addEventListener("click", InscrireUtilisateur);
 
 function validateForm(){   
     const nomOk = validateRequired(inputNom);
@@ -81,3 +83,51 @@ function validateConfirmationPassword(inputPwd, inputConfirmPwd){
 
 
 
+
+
+
+// Appel à l'API
+
+function InscrireUtilisateur(){
+
+    //récupérer les données rentrées dans le form
+    let dataForm = new FormData(formInscription);
+
+    //header du fetch
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    //body du fetch
+    const raw = JSON.stringify({
+        "firstName": dataForm.get("nom"),
+        "lastName": dataForm.get("prenom"),
+        "email": dataForm.get("email"),
+        "password": dataForm.get("mdp")
+    });
+
+    //recap du fetch
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+    };
+
+    //appel de la méthode fetch sur l'URL demandé et récup des réponses au format json 
+    fetch(apiUrl+"registration", requestOptions)
+    .then((response) => {
+        if(response.ok){
+            return response.json();
+        } else {
+            alert("Erreur lors de l'inscription");
+        }
+    })
+    .then((result) => {
+//Si le fetch est OK, on veut renvoyer le user sur la page de connexion
+        alert("Bravo " + dataForm.get("prenom") + ", vous êtes maintenant inscrit, vous pouvez vous connecter.");
+        document.location.href="/signin";
+
+        console.log(result)
+    })
+    .catch((error) => console.error(error));
+}

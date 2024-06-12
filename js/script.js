@@ -120,3 +120,8 @@ function showAndHideElementsForRoles(){
         }
     })
 }
+
+
+
+//CREATION CONSTANT POUR URL DE L'API
+const apiUrl = "http://127.0.0.1:8000/api/"
